@@ -1,6 +1,6 @@
 export const CATEGORIES = ["All", "Code", "Food", "Money", "Misc"];
 
-export const TASKS = [
+const taskList = [
   {
     text: "Buy rice",
     category: "Food",
@@ -30,3 +30,9 @@ export const TASKS = [
     category: "Misc",
   },
 ];
+
+export const generateID = () => "id" + Math.random().toString(32).slice(2);
+
+export const TASKS = taskList.map((task) => {
+  return { id: generateID(), ...task };
+});
